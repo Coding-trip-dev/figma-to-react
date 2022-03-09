@@ -33,6 +33,10 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 
     <title>React App</title>
     <script src="https://unpkg.com/mediaplayer/browser.js"></script>
@@ -71,6 +75,60 @@
     width: 100%;
   }
 </style>
+
+
+
+
+
+
+
+
+<style>
+  html, body, #vertical {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.1em;
+  color: #FFF; margin: 0; padding: 0;
+  height: 100% !important; 
+  overflow: hidden;
+ }
+  
+
+  #root, .App{
+    height: 100%;
+  }
+
+
+section {
+  height: 0%;
+  box-sizing: border-box;
+  transition: 0.5s;
+  overflow: hidden; }
+
+
+/* .inner { padding: 3em; } */
+
+#vertical section.active { height: 100% !important; }
+
+
+
+.notice {
+  position: absolute;
+  top: 3em; right: 3em; }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </head>
 
 
@@ -92,4 +150,57 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+
+
+
+<script>
+
+
+
+
+
+
+$(document).ready(function(){
+  // jQuery Next or First / Prev or Last plugin
+
+$.fn.nextOrFirst = function(selector){
+    var next = this.next(selector);
+    return (next.length) ? next : this.prevAll(selector).last();
+};
+
+$.fn.prevOrLast = function(selector){
+    var prev = this.prev(selector);
+    return (prev.length) ? prev : this.nextAll(selector).last();
+};
+
+// Scroll Functions
+
+function scrollSection(parent, dir) {
+	var active = "active",
+  		section = parent.find("."+active);
+  if (dir == "prev") {
+    section.removeClass(active).prevOrLast().addClass(active);
+  } else {
+    section.removeClass(active).nextOrFirst().addClass(active);
+  }
+}
+
+// Bind Scroll function to mouse wheel event
+
+$('#vertical, #horizontal').on('mousewheel wheel', function(e){
+  if (e.originalEvent.wheelDelta /120 > 0) { // scroll up event
+    scrollSection($(this), "prev");
+  } else { // scroll down event
+    scrollSection($(this));
+  }
+});
+
+  // jQuery methods go here...
+
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  
 </html>

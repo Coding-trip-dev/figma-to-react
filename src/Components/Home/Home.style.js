@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 export const HomePage = styled.div`
   font-family: "Overpass", sans-serif;
+
 `;
 
 export const Navbar = styled.div`
@@ -32,6 +33,7 @@ export const Logo = styled.div`
   font-family: "Overpass", sans-serif;
   font-style: normal;
   font-weight: normal;
+  color: black;
   line-height: 133%;
 `;
 
@@ -164,8 +166,8 @@ export const MainScroller = styled.div`
  
 
   @media (max-device-width: 767px) {
-   height: 500px ;
-   overflow: scroll;
+   /* height: 500px ; */
+   /* overflow: scroll; */
   }
 `;
 
