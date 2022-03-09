@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 import HomePage, {
   Navbar,
   Logo,
@@ -10,6 +12,8 @@ import HomePage, {
   Player,
   Title,
   Name,
+  MainScroller,
+  Spacerbt,
 } from "./Home.style";
 
   import ReactPlayer from "react-player";
@@ -109,18 +113,49 @@ const load = () => {
         </Col>
       </Row>
       <br />
-      <ScreenWrap style={backbanner}>
-        <Player>
-          <video id="player" height="400" controls autoPlay>
-            <source src={Vedio} type="video/mp4" />
-            <source src={Vedio} type="video/ogg" />
-          </video>
-        </Player>
-        <Title>
-          <Name>Nappily Ever After: What Had Happened Was</Name>
-        </Title>
-      </ScreenWrap>
-      <Spacer /> <Spacer />
+
+      <MainScroller>
+        <ScreenWrap style={backbanner}>
+          <Player>
+            <video id="player" height="400" controls autoPlay>
+              <source src={Vedio} type="video/mp4" />
+              <source src={Vedio} type="video/ogg" />
+            </video>
+          </Player>
+          <Title>
+            <Name>Nappily Ever After: What Had Happened Was</Name>
+          </Title>
+        </ScreenWrap>
+
+        <Spacerbt />
+
+        <ScreenWrap style={backbanner} onlyForMob>
+          <Player>
+            <video id="player" height="400" controls autoPlay>
+              <source src={Vedio} type="video/mp4" />
+              <source src={Vedio} type="video/ogg" />
+            </video>
+          </Player>
+          <Title>
+            <Name>Nappily Ever After: What Had Happened Was</Name>
+          </Title>
+        </ScreenWrap>
+
+        <Spacerbt />
+
+        <ScreenWrap style={backbanner} onlyForMob>
+          <Player>
+            <video id="player" height="400" controls autoPlay>
+              <source src={Vedio} type="video/mp4" />
+              <source src={Vedio} type="video/ogg" />
+            </video>
+          </Player>
+          <Title>
+            <Name>Nappily Ever After: What Had Happened Was</Name>
+          </Title>
+        </ScreenWrap>
+      </MainScroller>
+
       <Navbar footer>
         <HashLink to="/about#agency" className="alink">
           <Logo>Agency</Logo>
@@ -130,6 +165,7 @@ const load = () => {
           <NextPage>Contact</NextPage>
         </HashLink>
       </Navbar>
+
     </HomePage>
   );
 }

@@ -68,10 +68,24 @@ export const Spacer = styled.div`
   height: 50px;
   font-family: "Overpass", sans-serif;
 
-
 `;
 
+
+export const Spacerbt = styled.div`
+  height: 30px;
+  font-family: "Overpass", sans-serif;
+`;
+
+
 export const ScreenWrap = styled.div`
+  ${(props) =>
+    props.onlyForMob &&
+    css`
+      @media (min-device-width: 550px) {
+        display: none !important;
+      }
+    `};
+
   @media (max-device-width: 767px) {
     height: 225px;
     width: 288px;
@@ -143,4 +157,16 @@ export const Name = styled.div`
     font-size: 12px;
   }
 `;
+
+
+export const MainScroller = styled.div`
+  font-family: "Overpass", sans-serif;
+ 
+
+  @media (max-device-width: 767px) {
+   height: 500px ;
+   overflow: scroll;
+  }
+`;
+
 export default HomePage;
