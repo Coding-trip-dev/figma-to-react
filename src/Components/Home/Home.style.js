@@ -1,10 +1,12 @@
 import styled, { css } from "styled-components";
 
-
-
 export const HomePage = styled.div`
   font-family: "Overpass", sans-serif;
-
+  .onyforWeb{
+    height: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
 `;
 
 export const Navbar = styled.div`
@@ -15,10 +17,10 @@ export const Navbar = styled.div`
   padding: 18px 28px;
   border-bottom: 2px black solid;
 
-.alink{
-  text-decoration: none;
-  color: black;
-}
+  .alink {
+    text-decoration: none;
+    color: black;
+  }
 
   ${(props) =>
     props.footer &&
@@ -69,24 +71,15 @@ export const VedioControls = styled.div`
 export const Spacer = styled.div`
   height: 50px;
   font-family: "Overpass", sans-serif;
-
 `;
-
 
 export const Spacerbt = styled.div`
   height: 30px;
   font-family: "Overpass", sans-serif;
 `;
 
-
 export const ScreenWrap = styled.div`
-  ${(props) =>
-    props.onlyForMob &&
-    css`
-      @media (min-device-width: 550px) {
-        display: none !important;
-      }
-    `};
+  
 
   @media (max-device-width: 767px) {
     height: 225px;
@@ -106,8 +99,10 @@ export const ScreenWrap = styled.div`
   font-family: "Overpass", sans-serif;
   display: flex;
   flex-direction: column;
-  height: 696px;
-  width: 888px;
+  height: 440px;
+  width: 550px;
+  max-height: 456px;
+  max-width: 658px;
   /* background: red ; */
   margin: 0px auto;
 `;
@@ -132,18 +127,17 @@ export const Player = styled.div`
       top: -35px;
     }
 
-    height: 108%;
-    width: 99.2%;
+    height: 111%;
+    width: 105.2%;
     padding: 35px;
     position: relative;
-    left: 2px;
-    top: -39px;
+    left: -13px;
+    top: -28px;
   }
 `;
 export const Title = styled.div`
   height: 15%;
   /* background: gray; */
-  
 `;
 
 export const Name = styled.div`
@@ -160,14 +154,12 @@ export const Name = styled.div`
   }
 `;
 
-
 export const MainScroller = styled.div`
   font-family: "Overpass", sans-serif;
- 
 
   @media (max-device-width: 767px) {
-   /* height: 500px ; */
-   /* overflow: scroll; */
+    /* height: 500px ; */
+    /* overflow: scroll; */
   }
 `;
 

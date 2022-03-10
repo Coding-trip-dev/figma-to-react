@@ -1,6 +1,4 @@
-import React from 'react'
-
-
+import React from "react";
 
 import HomePage, {
   Navbar,
@@ -16,15 +14,13 @@ import HomePage, {
   Spacerbt,
 } from "./Home.style";
 
-  import ReactPlayer from "react-player";
+import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
-
 
 import { HashLink } from "react-router-hash-link";
 
-  import Vedio from "./../../assets/LioanKing.mp4";
-  import Vedio2 from "./../../assets/00_MAIN.mp4";
-
+import Vedio from "./../../assets/LioanKing.mp4";
+import Vedio2 from "./../../assets/00_MAIN.mp4";
 
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -34,45 +30,35 @@ import replayimg from "./../../assets/replay.png";
 import playimg from "./../../assets/play.png";
 import pauseimg from "./../../assets/pause.png";
 
-
 import vectorimg from "./../../assets/Polaroid.png";
 
-
-
-
 export default function Home() {
+  const backbanner = {
+    backgroundImage: `url(${vectorimg})`,
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "bottom",
+    backgroundSize: "cover",
+  };
 
+  const play = () => {
+    document.getElementById("player").play();
+  };
 
+  const Pause = () => {
+    document.getElementById("player").pause();
+  };
 
-const backbanner = {
-  backgroundImage: `url(${vectorimg})`,
-  backgroundRepeat: "no-repeat",
-  backgroundPosition: "bottom",
-  backgroundSize: "cover",
-};
+  const volumei = () => {
+    document.getElementById("player").volume += 0.1;
+  };
 
+  const volumed = () => {
+    document.getElementById("player").volume -= 0.1;
+  };
 
-
-const play = () => {
-  document.getElementById("player").play();
-};
-
-const Pause = () => {
-  document.getElementById("player").pause();
-};
-
-const volumei = () => {
-  document.getElementById("player").volume += 0.1;
-};
-
-const volumed = () => {
-  document.getElementById("player").volume -= 0.1;
-};
-
-const load = () => {
-  document.getElementById("player").load();
-};
-
+  const load = () => {
+    document.getElementById("player").load();
+  };
 
   return (
     <HomePage id="vertical">
@@ -123,7 +109,28 @@ const load = () => {
           </Col>
         </Row>
         <MainScroller>
-          <ScreenWrap style={backbanner}>
+          {[1, 2, 3].map((item, key) => {
+            return (
+              <>
+                <ScreenWrap style={backbanner} key={key}>
+                  <Player>
+                    <video id="player" height="400" controls autoPlay>
+                      <source src={Vedio} type="video/mp4" />
+                      <source src={Vedio} type="video/ogg" />
+                    </video>
+                  </Player>
+                  <Title>
+                    <Name>Nappily Ever After: What Had Happened Was</Name>
+                  </Title>
+                </ScreenWrap>
+                <Spacerbt />;
+              </>
+            );
+          })}
+
+          {/* 
+
+          <ScreenWrap style={backbanner} >
             <Player>
               <video id="player" height="400" controls autoPlay>
                 <source src={Vedio} type="video/mp4" />
@@ -137,7 +144,7 @@ const load = () => {
 
           <Spacerbt />
 
-          <ScreenWrap style={backbanner} onlyForMob>
+          <ScreenWrap style={backbanner} >
             <Player>
               <video id="player" height="400" controls autoPlay>
                 <source src={Vedio} type="video/mp4" />
@@ -147,26 +154,12 @@ const load = () => {
             <Title>
               <Name>Nappily Ever After: What Had Happened Was</Name>
             </Title>
-          </ScreenWrap>
-
-          <Spacerbt />
-
-          <ScreenWrap style={backbanner} onlyForMob>
-            <Player>
-              <video id="player" height="400" controls autoPlay>
-                <source src={Vedio} type="video/mp4" />
-                <source src={Vedio} type="video/ogg" />
-              </video>
-            </Player>
-            <Title>
-              <Name>Nappily Ever After: What Had Happened Was</Name>
-            </Title>
-          </ScreenWrap>
+          </ScreenWrap> */}
         </MainScroller>
       </div>
       {/* Slides For Mobile Only */}
 
-      <div id="vertical" className="onyforMob">
+      {/* <div id="vertical" className="onyforMob">
         <section className="active cursorWrap">
           <div className="inner">
             <Row>
@@ -559,7 +552,7 @@ const load = () => {
             </MainScroller>
           </div>
         </section>
-      </div>
+      </div> */}
 
       <Navbar footer>
         <HashLink to="/about#agency" className="alink">

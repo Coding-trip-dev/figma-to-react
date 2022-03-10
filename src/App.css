@@ -1,38 +1,64 @@
+html,
+body,
+#vertical {
+  font-family: "Pacifico", cursive;
+  font-size: 1.1em;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  height: 100% !important;
+  overflow: hidden;
+}
+
+#root,
 .App {
-  text-align: center;
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section {
+  height: 0%;
+  box-sizing: border-box;
+  transition: 0.5s;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* .inner { padding: 3em; } */
+
+#vertical section.active {
+  height: 100% !important;
+}
+
+.notice {
+  position: absolute;
+  top: 3em;
+  right: 3em;
+}
+
+.onyforTab,
+.onyforMob {
+  display: none;
+}
+
+@media only screen and (min-device-width: 700px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .onyforTab {
+    display: block;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+@media (max-device-width: 699px) {
+  .onyforMob {
+    display: block;
+  }
+}
+@media (min-device-width: 1025px) {
+  .onyforWeb {
+    display: block;
+  }
+}
+.liveImg {
+  text-align: initial;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.img1wid {
+  width: 100%;
 }

@@ -16,14 +16,17 @@
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-  crossorigin="anonymous"
-/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
-<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400&family=Quicksand:wght@500&display=swap"
+      rel="stylesheet"
+    />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -34,109 +37,16 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
-
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <title>React App</title>
     <script src="https://unpkg.com/mediaplayer/browser.js"></script>
-<link rel="stylesheet" src="https://unpkg.com/mediaplayer/browser.css"></script>
-
-
-
-<style>
-  .onyforTab,
-  .onyforMob,
-  .onyforWeb{
-    display: none;
-  }
-
-  @media only screen and (min-device-width: 700px) and (max-device-width: 1024px) and (orientation: portrait) {
-       .onyforTab{
-         display: block;
-       }
-      }
-
-       @media (max-device-width: 699px) {
-   .onyforMob{
-        display: block;
-   }
-  }
-      @media (min-device-width: 1025px) {
-   .onyforWeb{
-        display: block;
-   }
-  }
-  .liveImg{
-    text-align: initial;
-  }
-
-  .img1wid{
-    width: 100%;
-  }
-</style>
-
-
-
-
-
-
-
-
-<style>
-  html, body, #vertical {
-  font-family: 'Pacifico', cursive;
-  font-size: 1.1em;
-  color: #FFF; margin: 0; padding: 0;
-  height: 100% !important; 
-  overflow: hidden;
- }
-  
-
-  #root, .App{
-    height: 100%;
-  }
-
-
-section {
-  height: 0%;
-  box-sizing: border-box;
-  transition: 0.5s;
-  overflow: hidden; }
-
-
-/* .inner { padding: 3em; } */
-
-#vertical section.active { height: 100% !important; }
-
-
-
-.notice {
-  position: absolute;
-  top: 3em; right: 3em; }
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <link rel="stylesheet" src="https://unpkg.com/mediaplayer/browser.css" />
   </head>
 
-
-
-
   <body>
-
-   
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -151,56 +61,47 @@ section {
     -->
   </body>
 
+  <script>
+    $(document).ready(function () {
+      // jQuery Next or First / Prev or Last plugin
 
+      $.fn.nextOrFirst = function (selector) {
+        var next = this.next(selector);
+        return next.length ? next : this.prevAll(selector).last();
+      };
 
+      $.fn.prevOrLast = function (selector) {
+        var prev = this.prev(selector);
+        return prev.length ? prev : this.nextAll(selector).last();
+      };
 
-<script>
+      // Scroll Functions
 
+      function scrollSection(parent, dir) {
+        var active = "active",
+          section = parent.find("." + active);
+        if (dir == "prev") {
+          section.removeClass(active).prevOrLast().addClass(active);
+        } else {
+          section.removeClass(active).nextOrFirst().addClass(active);
+        }
+      }
 
+      // Bind Scroll function to mouse wheel event
 
+      $("#vertical, #horizontal").on("mousewheel wheel", function (e) {
+        if (e.originalEvent.wheelDelta / 120 > 0) {
+          // scroll up event
+          scrollSection($(this), "prev");
+        } else {
+          // scroll down event
+          scrollSection($(this));
+        }
+      });
 
-
-
-$(document).ready(function(){
-  // jQuery Next or First / Prev or Last plugin
-
-$.fn.nextOrFirst = function(selector){
-    var next = this.next(selector);
-    return (next.length) ? next : this.prevAll(selector).last();
-};
-
-$.fn.prevOrLast = function(selector){
-    var prev = this.prev(selector);
-    return (prev.length) ? prev : this.nextAll(selector).last();
-};
-
-// Scroll Functions
-
-function scrollSection(parent, dir) {
-	var active = "active",
-  		section = parent.find("."+active);
-  if (dir == "prev") {
-    section.removeClass(active).prevOrLast().addClass(active);
-  } else {
-    section.removeClass(active).nextOrFirst().addClass(active);
-  }
-}
-
-// Bind Scroll function to mouse wheel event
-
-$('#vertical, #horizontal').on('mousewheel wheel', function(e){
-  if (e.originalEvent.wheelDelta /120 > 0) { // scroll up event
-    scrollSection($(this), "prev");
-  } else { // scroll down event
-    scrollSection($(this));
-  }
-});
-
-  // jQuery methods go here...
-
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
-  
+      // jQuery methods go here...
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </html>
