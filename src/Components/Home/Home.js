@@ -63,7 +63,9 @@ export default function Home() {
   return (
     <HomePage id="vertical">
       <Navbar>
-        <Logo>Nina Lee Films</Logo>
+      <Link to="/" className="alink">
+          <Logo>Nina Lee Films</Logo>
+        </Link>
         <Link to="/about" className="alink">
           <NextPage>About</NextPage>
         </Link>

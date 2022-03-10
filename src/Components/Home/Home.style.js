@@ -4,7 +4,7 @@ export const HomePage = styled.div`
   font-family: "Overpass", sans-serif;
   .onyforWeb{
     height: 80%;
-    overflow-y: scroll;
+    // overflow-y: scroll;
     overflow-x: hidden;
   }
 `;

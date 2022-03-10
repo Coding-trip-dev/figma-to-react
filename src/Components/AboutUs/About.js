@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react";
 
 import AboutUs, {
   Navbar,
@@ -17,7 +16,7 @@ import AboutUs, {
   ImageTag,
 } from "./About.style";
 import { HashLink } from "react-router-hash-link";
-
+import { Link as RouterLink } from "react-router-dom";
 
 import { Row, Col, Container } from "react-bootstrap";
 
@@ -31,21 +30,19 @@ import img2tab from "./../../assets/ContactTab.png";
 import img1mob from "./../../assets/mob1.png";
 import img2mob from "./../../assets/mob2.png";
 
-
 import { AiFillInstagram } from "react-icons/ai";
 import { VscTwitter } from "react-icons/vsc";
 import { SiYoutube } from "react-icons/si";
 import { TiSocialVimeo } from "react-icons/ti";
 
-
-
-
 export default function About() {
   return (
     <AboutUs>
       <Navbar>
-        <Logo>Nina Lee Films</Logo>
-        <NextPage id='about'>About</NextPage>
+        <RouterLink to="/" className="alink">
+          <Logo>Nina Lee Films</Logo>
+        </RouterLink>
+        <NextPage id="about">About</NextPage>
       </Navbar>
       <Spacer />
       <Spacer />
